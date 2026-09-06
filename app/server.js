@@ -2,7 +2,7 @@ const http = require("http");
 const { MongoClient } = require("mongodb");
 
 const client = new MongoClient(
-  `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@coffee-db:27017/?authSource=admin`
+  `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@mongodb:27017/?authSource=admin`
 );
 
 const server = http.createServer((req, res) => {
