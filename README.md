@@ -1,28 +1,41 @@
 # ☕ Coffee Dashboard
 
-A small full-stack learning project built to practice Docker, Docker Compose, Node.js, Express and MongoDB.
+A small learning project built to practice Docker, Docker Compose, Node.js, Express and MongoDB.
 
-The main goal of this project is to understand how containers, networking, environment variables, an application and a database work together.
+The main goal is to understand how an application, containers, networking, environment variables and a database work together.
 
-## Current architecture
+## Architecture
 
+```text
 Browser
-↓ HTTP
+   ↓ HTTP
 Node.js + Express
-↓
+   ↓
 MongoDB
+```
 
-The application and MongoDB run as separate Docker containers and are connected through Docker Compose.
+The application and MongoDB run as separate Docker containers and are managed with Docker Compose.
 
 ## Current features
 
 - Node.js application running in Docker
 - Express API
-- MongoDB database running in Docker
-- Docker Compose for managing the services
+- MongoDB running in a separate Docker container
+- Docker Compose for managing the application and database
+- Docker networking between services
 - Environment variables for MongoDB credentials
+- MongoDB database with coffee documents
 - `GET /api/coffees` — fetch coffees from MongoDB
 - `POST /api/coffees` — add a coffee to MongoDB
+- `PUT /api/coffees/:id` — update a coffee
+- `DELETE /api/coffees/:id` — delete a coffee
+
+The API currently supports the basic CRUD operations:
+
+- **Create** → `POST`
+- **Read** → `GET`
+- **Update** → `PUT`
+- **Delete** → `DELETE`
 
 ## Tech stack
 
@@ -41,17 +54,17 @@ MONGO_USERNAME=admin
 MONGO_PASSWORD=your-password
 ```
 
-Then start the application:
+Then start the application with:
 
 ```bash
 docker compose up --build
 ```
 
-The API is available at:
+The application is available at:
 
 `http://localhost:3000`
 
-Coffee endpoint:
+Coffee API:
 
 `http://localhost:3000/api/coffees`
 
@@ -59,13 +72,14 @@ Coffee endpoint:
 
 🚧 Work in progress.
 
-This project is primarily a hands-on learning project. The goal is to gradually build a working application while learning Docker and backend infrastructure concepts along the way.
+This is primarily a hands-on learning project. The application is being built step by step while learning Docker and backend infrastructure concepts.
 
-### Planned
+The project will eventually be used to explore Kubernetes concepts as well.
 
-- [ ] Complete CRUD API
-- [ ] Improve error handling and validation
+## Planned
+
+- [ ] Improve API validation and error handling
 - [ ] Add a simple frontend
-- [ ] Improve Docker setup
+- [ ] Improve the Docker setup
 - [ ] Add health checks
 - [ ] Explore Kubernetes deployment
