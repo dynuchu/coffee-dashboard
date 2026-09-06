@@ -1,0 +1,12 @@
+{
+  "name": "coffee-dashboard",
+  "version": "1.0.0",
+  "description": "A small coffee dashboard for learning Docker",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "mongodb": "^7.6.0"
+  }
+}
